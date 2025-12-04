@@ -42,7 +42,7 @@ export function DonatorsList() {
     },
   ];
 
-  const donatorsWithRank = PLACEHOLDER_DONATORS.map((d, i) => ({
+  const donatorsWithRank = donators.map((d, i) => ({
     ...d,
     rank: i + 1,
   }));

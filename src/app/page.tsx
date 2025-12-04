@@ -5,41 +5,41 @@ import { DonatorsList } from "@/components/DonatorsList";
 
 export default function Home() {
   return (
-    <div className="min-h-[100dvh] flex flex-col">
+    <div className="h-full w-full overflow-hidden flex flex-col">
       {/* Header */}
-      <header className="w-full py-6 px-4 sm:px-6 lg:px-8">
+      <header className="w-full py-6 px-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <a target="_blank" href="https://www.grysiewicz.com/">
-              <p className="text-white text-2xl font-bold">My portfolio</p>
-            </a>
-          </div>
+          <a
+            target="_blank"
+            href="https://www.grysiewicz.com/"
+            className="text-white text-lg sm:text-2xl font-bold hover:text-purple-400 transition-colors"
+          >
+            My portfolio
+          </a>
           <ConnectButton />
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-12">
-        <div className="max-w-4xl w-full text-center mb-8 sm:mb-12 flex flex-col items-center gap-4 sm:gap-6">
-          <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight sm:leading-[1.1]">
+      <main className="flex-1 flex flex-col items-center justify-center px-4  overflow-hidden">
+        {/* Hero Text */}
+        <div className="text-center pb-4 mb-8 sm:mb-6">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-2 sm:mb-4">
             <span className="text-gradient-primary">Fuel Shai's</span>
             <br />
             <span className="text-gradient-accent">Web3 Journey.</span>
           </h2>
-
-          <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed px-2">
-            Hey, I'm <strong>Shai</strong>! I'm on a mission to become a
-            world-class Web3 developer. Your support helps me learn, build, and
-            create the decentralized future.
+          <p className="text-xs sm:text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
+            Hey, I'm <strong>Shai</strong>! Support my journey to become a Web3
+            developer.
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center gap-6 w-full max-w-6xl items-center lg:items-start">
-          <FundMeCard />
 
+        {/* Cards */}
+        <div className="flex flex-col lg:flex-row justify-center gap-8  ">
+          <FundMeCard />
           <DonatorsList />
         </div>
-
-        {/* Features Section */}
       </main>
 
       <Fluid />

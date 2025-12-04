@@ -20,7 +20,14 @@
   }
 }
 
+html,
 body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling */
+  overscroll-behavior: none; /* Prevent bounce */
   color: white;
   background-color: black;
 }
@@ -136,4 +143,14 @@ button {
 
 .animated-border-link2:hover::after {
   transform: scaleX(1); /* On hover, animate to full width */
+}
+
+.fluid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }

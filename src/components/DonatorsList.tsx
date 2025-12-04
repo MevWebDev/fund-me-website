@@ -11,16 +11,62 @@ export function DonatorsList() {
     return null;
   }
 
+  const PLACEHOLDER_DONATORS = [
+    {
+      address: "0x0000000000000000000000000000000000000000",
+      amount: "0.0",
+    },
+    {
+      address: "0x0000000000000000000000000000000000000000",
+      amount: "0.0",
+    },
+    {
+      address: "0x0000000000000000000000000000000000000000",
+      amount: "0.0",
+    },
+    {
+      address: "0x0000000000000000000000000000000000000000",
+      amount: "0.0",
+    },
+    {
+      address: "0x0000000000000000000000000000000000000000",
+      amount: "0.0",
+    },
+    {
+      address: "0x0000000000000000000000000000000000000000",
+      amount: "0.0",
+    },
+    {
+      address: "0x0000000000000000000000000000000000000000",
+      amount: "0.0",
+    },
+  ];
+
+  const donatorsWithRank = PLACEHOLDER_DONATORS.map((d, i) => ({
+    ...d,
+    rank: i + 1,
+  }));
+
+  let displayList = donatorsWithRank;
+
+  if (address) {
+    const userIndex = donatorsWithRank.findIndex(
+      (d) => d.address.toLowerCase() === address.toLowerCase()
+    );
+    if (userIndex !== -1) {
+      const userEntry = donatorsWithRank[userIndex];
+      const others = donatorsWithRank.filter((_, i) => i !== userIndex);
+      displayList = [userEntry, ...others];
+    }
+  }
+
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
-        Top Donators
-      </h3>
-      <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left">
-            <thead>
-              <tr className="border-b border-white/10 bg-white/5">
+    <div className="w-full max-w-3xl mx-auto">
+      <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden flex flex-col max-h-[300px] sm:max-h-[400px]">
+        <div className="overflow-y-auto overflow-x-hidden   custom-scrollbar">
+          <table className="w-full text-left relative">
+            <thead className="sticky top-0 z-10 bg-black/60 backdrop-blur-md">
+              <tr className="border-b border-white/10">
                 <th className="py-3 px-4 sm:py-4 sm:px-6 text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider">
                   Rank
                 </th>
@@ -33,7 +79,7 @@ export function DonatorsList() {
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
-              {donators.map((donator, index) => {
+              {displayList.map((donator) => {
                 const isMe =
                   address &&
                   donator.address.toLowerCase() === address.toLowerCase();
@@ -41,11 +87,13 @@ export function DonatorsList() {
                   <tr
                     key={donator.address}
                     className={`transition-colors hover:bg-white/5 ${
-                      isMe ? "bg-purple-500/10" : ""
+                      isMe
+                        ? "bg-purple-500/20 border-l-2 border-purple-500"
+                        : ""
                     }`}
                   >
                     <td className="py-3 px-4 sm:py-4 sm:px-6 text-xs sm:text-sm text-gray-500 font-mono">
-                      #{index + 1}
+                      #{donator.rank}
                     </td>
                     <td className="py-3 px-4 sm:py-4 sm:px-6">
                       <div className="flex items-center gap-2">

@@ -71,7 +71,7 @@ export function FundMeCard() {
 
   if (!isConnected) {
     return (
-      <div className="w-full max-w-md bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center flex flex-col items-center justify-center shadow-2xl">
+      <div className="w-full h-full max-w-md bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 text-center flex flex-col items-center justify-center shadow-2xl">
         <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-3xl mb-2">
           👛
         </div>

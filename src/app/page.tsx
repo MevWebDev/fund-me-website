@@ -21,22 +21,22 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center px-4  overflow-hidden">
+      <main className="flex-1 flex flex-col items-center px-4 overflow-y-auto overflow-x-hidden py-2 sm:py-4">
         {/* Hero Text */}
-        <div className="text-center pb-4 mb-8 sm:mb-6">
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-2 sm:mb-4">
+        <div className="text-center pb-2 mb-4 sm:mb-6 flex-shrink-0">
+          <h2 className="text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-4">
             <span className="text-gradient-primary">Fuel Shai's</span>
             <br />
             <span className="text-gradient-accent">Web3 Journey.</span>
           </h2>
-          <p className="text-xs sm:text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
+          <p className="text-[10px] sm:text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
             Hey, I'm <strong>Shai</strong>! Support my journey to become a Web3
             developer.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col lg:flex-row justify-center gap-8  ">
+        <div className="flex flex-col lg:flex-row justify-center gap-4 sm:gap-8 w-full max-w-4xl">
           <FundMeCard />
           <DonatorsList />
         </div>

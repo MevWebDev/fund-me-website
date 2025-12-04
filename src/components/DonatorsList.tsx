@@ -42,7 +42,7 @@ export function DonatorsList() {
     },
   ];
 
-  const donatorsWithRank = donators.map((d, i) => ({
+  const donatorsWithRank = PLACEHOLDER_DONATORS.map((d, i) => ({
     ...d,
     rank: i + 1,
   }));
@@ -62,8 +62,8 @@ export function DonatorsList() {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden flex flex-col max-h-[300px] sm:max-h-[400px]">
-        <div className="overflow-y-auto overflow-x-hidden   custom-scrollbar">
+      <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden flex flex-col max-h-none md:max-h-[400px]">
+        <div className="overflow-y-auto overflow-x-hidden custom-scrollbar">
           <table className="w-full text-left relative">
             <thead className="sticky top-0 z-10 bg-black/60 backdrop-blur-md">
               <tr className="border-b border-white/10">

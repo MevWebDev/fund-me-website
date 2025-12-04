@@ -5,7 +5,7 @@ import { DonatorsList } from "@/components/DonatorsList";
 
 export default function Home() {
   return (
-    <div className="h-full w-full overflow-hidden flex flex-col">
+    <div className="min-h-full w-full md:h-full md:overflow-hidden flex flex-col">
       {/* Header */}
       <header className="w-full py-6 px-6 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -21,7 +21,7 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center px-4 overflow-y-auto overflow-x-hidden py-2 sm:py-4">
+      <main className="flex-1 flex flex-col items-center px-4 md:overflow-y-auto overflow-x-hidden py-2 sm:py-4">
         {/* Hero Text */}
         <div className="text-center pb-2 mb-4 sm:mb-6 flex-shrink-0">
           <h2 className="text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-4">

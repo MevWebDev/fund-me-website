@@ -167,6 +167,7 @@ export function FundMeCard() {
         <div className="relative">
           <input
             type="number"
+            inputMode="decimal"
             step="0.001"
             min="0"
             placeholder="0.0"

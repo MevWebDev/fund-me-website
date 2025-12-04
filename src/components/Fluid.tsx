@@ -16,5 +16,5 @@ export const Fluid = () => {
     };
   }, []);
 
-  return <canvas className="fluid-canvas w-full"></canvas>;
+  return <canvas className="fluid-canvas w-full" />;
 };

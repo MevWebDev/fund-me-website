@@ -119,7 +119,7 @@ export function FundMeCard() {
   const networkInfo = getNetworkInfo();
 
   return (
-    <div className="w-full max-w-md bg-black/90 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl relative overflow-y-auto max-h-[50vh] sm:max-h-[70vh] lg:max-h-none flex-shrink-0">
+    <div className="w-full max-w-md bg-black/90 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl relative overflow-y-auto max-h-none sm:max-h-[70vh] lg:max-h-none flex-shrink-0">
       {/* Header */}
       <div className="flex justify-between items-start mb-3 sm:mb-8">
         <div>

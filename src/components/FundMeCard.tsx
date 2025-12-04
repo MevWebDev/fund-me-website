@@ -78,7 +78,7 @@ export function FundMeCard() {
         <div>
           <h2 className="text-2xl font-bold text-white mb-2">Connect Wallet</h2>
           <p className="text-gray-400 max-w-xs mx-auto">
-            Connect your wallet to view campaign details and make a donation.
+            Connect your wallet to support me.
           </p>
         </div>
       </div>
@@ -119,21 +119,25 @@ export function FundMeCard() {
   const networkInfo = getNetworkInfo();
 
   return (
-    <div className="w-full max-w-md bg-black/90 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+    <div className="w-full max-w-md bg-black/90 backdrop-blur-md border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
       {/* Header */}
-      <div className="flex justify-between items-start mb-8">
+      <div className="flex justify-between items-start mb-6 sm:mb-8">
         <div>
-          <h2 className="text-2xl font-bold text-white">Support Shai</h2>
-          <p className="text-gray-400 text-sm">Help me become a Web3 Dev</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-white">
+            Support Shai
+          </h2>
+          <p className="text-gray-400 text-xs sm:text-sm">
+            Help me become a Web3 Dev
+          </p>
         </div>
-        <div className="bg-blue-500/10 border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+        <div className="bg-blue-500/10 border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold flex items-center gap-2">
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-400 animate-pulse" />
           {networkInfo.name}
         </div>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
         <div className="bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-white/20 transition-colors">
           <div className="text-gray-400 text-xs font-bold uppercase tracking-wider mb-1">
             Total Raised

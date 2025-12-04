@@ -13,7 +13,7 @@ export function DonatorsList() {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <h3 className="text-2xl font-bold text-white mb-6 text-center">
+      <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
         Top Donators
       </h3>
       <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden">
@@ -21,13 +21,13 @@ export function DonatorsList() {
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-white/10 bg-white/5">
-                <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                <th className="py-3 px-4 sm:py-4 sm:px-6 text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider">
                   Rank
                 </th>
-                <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                <th className="py-3 px-4 sm:py-4 sm:px-6 text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider">
                   Address
                 </th>
-                <th className="py-4 px-6 text-xs font-bold text-gray-400 uppercase tracking-wider text-right">
+                <th className="py-3 px-4 sm:py-4 sm:px-6 text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider text-right">
                   Amount
                 </th>
               </tr>
@@ -44,13 +44,13 @@ export function DonatorsList() {
                       isMe ? "bg-purple-500/10" : ""
                     }`}
                   >
-                    <td className="py-4 px-6 text-sm text-gray-500 font-mono">
+                    <td className="py-3 px-4 sm:py-4 sm:px-6 text-xs sm:text-sm text-gray-500 font-mono">
                       #{index + 1}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-3 px-4 sm:py-4 sm:px-6">
                       <div className="flex items-center gap-2">
                         <span
-                          className={`font-mono text-sm ${
+                          className={`font-mono text-xs sm:text-sm ${
                             isMe ? "text-purple-400 font-bold" : "text-gray-300"
                           }`}
                         >
@@ -58,17 +58,19 @@ export function DonatorsList() {
                           {donator.address.slice(-4)}
                         </span>
                         {isMe && (
-                          <span className="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold uppercase tracking-wide">
+                          <span className="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold uppercase tracking-wide hidden sm:inline-block">
                             You
                           </span>
                         )}
                       </div>
                     </td>
-                    <td className="py-4 px-6 text-right">
-                      <span className="font-bold text-white">
+                    <td className="py-3 px-4 sm:py-4 sm:px-6 text-right">
+                      <span className="font-bold text-white text-xs sm:text-base">
                         {parseFloat(donator.amount).toFixed(4)}
                       </span>
-                      <span className="text-gray-500 text-xs ml-1">ETH</span>
+                      <span className="text-gray-500 text-[10px] sm:text-xs ml-1">
+                        ETH
+                      </span>
                     </td>
                   </tr>
                 );

@@ -12,7 +12,7 @@ export function DonatorsList() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto mt-12">
+    <div className="w-full max-w-2xl mx-auto">
       <h3 className="text-2xl font-bold text-white mb-6 text-center">
         Top Donators
       </h3>

@@ -35,7 +35,6 @@ export default function Home() {
         </div>
         <div className="flex  justify-center gap-6">
           <FundMeCard />
-
           <DonatorsList />
         </div>
 

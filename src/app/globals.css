@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@theme inline {
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: white;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+  font-weight: inherit;
+}
+
+a {
+  color: white;
+  text-decoration: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+button {
+  cursor: pointer;
+}
+
+.noise {
+  position: fixed;
+  z-index: 1000;
+  top: -300%;
+  left: -150%;
+  height: 600%;
+  width: 600%;
+  background-image: url("/assets/noise.png");
+  background-size: 200px;
+  background-repeat: repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Add this for the animated border effect */
+.animated-border-link {
+  position: relative;
+  display: inline-block; /* Important for positioning the pseudo-element */
+}
+
+.animated-border-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* This is your border thickness */
+  background-color: white; /* This is your border color */
+  transform: scaleX(1);
+  transform-origin: center; /* This makes it shrink from the outside to the center */
+  transition: transform 0.3s ease-in-out;
+}
+
+.animated-border-link:hover::after {
+  transform: scaleX(0); /* On hover, shrink the border to be invisible */
+}
+
+.animated-border-link2 {
+  position: relative;
+  display: inline-block; /* Important for positioning the pseudo-element */
+}
+
+.animated-border-link2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* This is your border thickness */
+  background-color: white; /* This is your border color */
+  transform: scaleX(0); /* Initial state is invisible */
+  transform-origin: center; /* Animation originates from the center */
+  transition: transform 0.3s ease-in-out;
+}
+
+.animated-border-link2:hover::after {
+  transform: scaleX(1); /* On hover, animate to full width */
+}

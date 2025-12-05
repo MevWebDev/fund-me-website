@@ -138,11 +138,11 @@ export const FUNDME_ABI = [
 
 // Contract addresses for different networks
 export const FUNDME_ADDRESSES: Record<number, `0x${string}`> = {
-  11155111:
-    (process.env.NEXT_PUBLIC_FUNDME_ADDRESS_SEPOLIA as `0x${string}`) ||
+  8453:
+    (process.env.NEXT_PUBLIC_FUNDME_ADDRESS_BASE as `0x${string}`) ||
     "0x0000000000000000000000000000000000000000",
 };
 
 export const getFundMeAddress = (chainId: number) => {
-  return FUNDME_ADDRESSES[chainId] || FUNDME_ADDRESSES[11155111];
+  return FUNDME_ADDRESSES[chainId] || FUNDME_ADDRESSES[8453];
 };

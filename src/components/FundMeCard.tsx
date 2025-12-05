@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useAccount } from "wagmi";
 import { useFundMe } from "@/hooks/useFundMe";
+import { useEthPrice } from "@/hooks/useEthPrice";
 import { formatEther } from "viem";
 import { toast } from "sonner";
 
@@ -27,6 +28,7 @@ export function FundMeCard() {
 
   const [amount, setAmount] = useState("");
   const [mounted, setMounted] = useState(false);
+  const { ethPrice, convertEthToUsd } = useEthPrice();
 
   useEffect(() => {
     setMounted(true);
@@ -37,7 +39,7 @@ export function FundMeCard() {
       toast.info("Transaction Sent", {
         description: "Your transaction has been submitted to the network.",
         action: {
-          label: "View on Etherscan",
+          label: "View on Basescan",
           onClick: () =>
             window.open(`${networkInfo.explorer}/tx/${hash}`, "_blank"),
         },
@@ -53,7 +55,7 @@ export function FundMeCard() {
       toast.success("Transaction Confirmed", {
         description: "Your donation has been successfully processed!",
         action: {
-          label: "View on Etherscan",
+          label: "View on Basescan",
           onClick: () =>
             window.open(`${networkInfo.explorer}/tx/${hash}`, "_blank"),
         },
@@ -110,10 +112,10 @@ export function FundMeCard() {
 
   // Get network name and explorer URL
   const getNetworkInfo = () => {
-    if (chainId === 11155111) {
-      return { name: "Sepolia", explorer: "https://sepolia.etherscan.io" };
+    if (chainId === 8453) {
+      return { name: "Base", explorer: "https://basescan.org" };
     }
-    return { name: "Unknown Network", explorer: "https://etherscan.io" };
+    return { name: "Unknown Network", explorer: "https://basescan.org" };
   };
 
   const networkInfo = getNetworkInfo();
@@ -168,7 +170,7 @@ export function FundMeCard() {
           <input
             type="number"
             inputMode="decimal"
-            step="0.001"
+            step="any"
             min="0"
             placeholder="0.0"
             value={amount}
@@ -180,6 +182,24 @@ export function FundMeCard() {
             ETH
           </span>
         </div>
+        {amount && convertEthToUsd(amount) && (
+          <div className="text-center text-sm text-gray-400">
+            ≈{" "}
+            <span className="text-green-400 font-semibold">
+              ${convertEthToUsd(amount)}
+            </span>{" "}
+            USD
+            {ethPrice && (
+              <span className="text-gray-500 text-xs ml-2">
+                (1 ETH = $
+                {ethPrice.toLocaleString(undefined, {
+                  maximumFractionDigits: 2,
+                })}
+                )
+              </span>
+            )}
+          </div>
+        )}
 
         <button
           type="submit"
@@ -192,6 +212,9 @@ export function FundMeCard() {
             ? "Processing..."
             : "Donate Now"}
         </button>
+        <p className="text-center text-xs text-yellow-500/80 mt-3">
+          ⚠️ Only send ETH on <span className="font-semibold">Base</span> chain
+        </p>
       </form>
 
       {/* Owner Controls */}
